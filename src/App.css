@@ -1,0 +1,24 @@
+
+/* Works in Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1e1e1e; /* Dark track */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #555; /* Thumb color */
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #888; /* On hover */
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: thin; /* "auto" or "thin" */
+  scrollbar-color: #555 #1e1e1e; /* thumb track */
+}
