@@ -5,6 +5,7 @@ import Input from "./Input";
 import databaseService from "../appwrite/databaseConf";
 import { usePlaylistInfo } from "../context/playlistInfoContext";
 import { ID, Query } from "appwrite";
+import MusicPlayer from "./MusicPlayer";
 
 const CustomPlaylist = () => {
   const [songName, setSongName] = useState("");
@@ -12,7 +13,7 @@ const CustomPlaylist = () => {
   const mp3Ref = useRef();
   const imageRef = useRef();
   let { folder } = useParams();
-  const { currentFolderId } = usePlaylistInfo();
+  const { currentFolderId, currentSongId, setSongId } = usePlaylistInfo();
   const id = ID.unique();
 
   const [songsList, setSongsList] = useState([]);
@@ -21,6 +22,7 @@ const CustomPlaylist = () => {
     const res = await databaseService.getSongFolder(id);
     console.log(res);
     res && setLyricsImage(res.lyricsImage);
+    setSongId(res.$id);
   };
 
   const handleSubmit = async (e) => {
@@ -69,7 +71,7 @@ const CustomPlaylist = () => {
   }, [handleSubmit]);
 
   return (
-    <div className="w-full max-w-7xl mx-auto px-4 overflow-x-hidden">
+    <div className="w-full max-w-7xl mx-auto px-4 overflow-x-hidden ">
       {/* Upload Form Section */}
       <div className="mt-10 p-8 bg-gray-900 text-white rounded-xl shadow">
         <h2 className="text-2xl font-bold mb-6">Upload New Song</h2>
@@ -187,6 +189,11 @@ const CustomPlaylist = () => {
             ))}
           </ul>
         </div>
+      </div>
+
+      {/* Music Player */}
+      <div className="w-full mx-auto flex justify-center sticky top-0 z-50 ">
+        <MusicPlayer songId = {currentSongId}/>
       </div>
     </div>
   );
