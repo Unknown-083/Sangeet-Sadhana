@@ -20,9 +20,11 @@ const Login = () => {
         console.log(credentials); 
         const userData = await authService.getCurrentUser();
         console.log(userData);
-               
-        login();
-        navigate('/');
+        
+        if(userData){
+          login(userData);
+          navigate('/');
+        }
       }
       else alert("Check Email and Password");
     }

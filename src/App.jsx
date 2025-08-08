@@ -74,7 +74,7 @@ function App() {
         <div className="min-h-screen flex flex-col">
           <Header />
           <main className="flex-grow flex justify-center items-center">
-            <Outlet />
+            <Outlet/>
           </main>
           <Footer />
         </div>

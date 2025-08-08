@@ -7,6 +7,7 @@ import Playlist from "./Playlists"
 import Login from "./Login"
 import Signup from "./Signup"
 import UploadSong from "./UploadSong"
+import NotAuthorised from "./NotAuthorised"
 
 
-export {Header, UploadSong, Home, Footer, Contact, CustomPlaylist, Playlist, Login, Signup}
+export {Header, UploadSong, NotAuthorised,Home, Footer, Contact, CustomPlaylist, Playlist, Login, Signup}
