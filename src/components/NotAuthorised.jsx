@@ -1,5 +1,6 @@
 import React from "react";
 import { Lock, Music } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const NotAuthorised = () => {
   return (
@@ -26,12 +27,12 @@ const NotAuthorised = () => {
       </p>
 
       {/* Call to Action */}
-      <a
-        href="/login"
+      <Link
+        to={'/login'}
         className="px-5 py-3 rounded-lg bg-gradient-to-r from-red-500 to-pink-500 hover:scale-105 transition transform font-medium text-base sm:text-lg"
       >
         🎵 Login & Join the Jam
-      </a>
+      </Link>
     </div>
   );
 };
